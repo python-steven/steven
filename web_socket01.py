@@ -12,6 +12,6 @@ def login():
         res={"error_code":1000,"mag":"登录成功","data":{'Name':uname,'password':passwd}}                                 # 接口返回的都是json，所以要这样写。先导入json模块，import json
     else:
         res={"error_code":3000,"mag":"必填参数未填，请查看接口文档！"}
-    return  json.dumps(res,ensure_ascii=False)#防止出现乱码；json.dumps()函数是将字典转化为字符串
+    return  json.dumps(res,ensure_ascii=False)                                                                          #防止出现乱码；json.dumps()函数是将字典转化为字符串
 
 server.run(port=8888,debug=True)

@@ -1,7 +1,19 @@
 # -*- coding: utf-8 -*-
 import scrapy
 import json
+class A365yinyueSpider(scrapy.Spider):
+    name = 'a365yinyue'
+    allowed_domains = ['caihaibo.cn']
+    start_urls = ['https://music.163.com/#/discover/toplist']
 
+
+    def parse(self, response):
+        print(dir(response))
+        print(response.body.decode())
+        with open("wangyi.html",'w',encoding='utf-8') as f:
+            f.write(response.body.decode())
+
+"""
 class A365yinyueSpider(scrapy.Spider):
     name = 'a365yinyue'
     allowed_domains = ['yue365.com']
@@ -52,3 +64,4 @@ class A365yinyueSpider(scrapy.Spider):
         with open("douying365.json","a",encoding='utf-8') as f:
             f.write(json.dumps(dict(item),ensure_ascii=False,indent=2)+"\n")
         # print(item)
+"""
